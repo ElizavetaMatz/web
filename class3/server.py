@@ -1,0 +1,11 @@
+from fastapi import FastAPI, APIRouter
+
+app = FastAPI()
+
+api_router = APIRouter(prefix="/api")
+
+@api_router.get("/")
+async def read_api_root():
+    return {"message": "Hello World"}
+
+app.include_router(api_router)
